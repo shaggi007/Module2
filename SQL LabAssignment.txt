@@ -1,3 +1,6 @@
+Data Query Language:
+1.1: Data Query Language
+
 Staff Master
 
 
@@ -121,4 +124,258 @@ STAFF_ADDRESS
          2 17-DEC-90 15-NOV-81
 mumbai
                 25000
+
+
+4)Display the Book details that were published during the period of 2001 to 2004. Also display book details with Book name having the character ‘&’ anywhere.
+BOOK_MASTER:
+
+ BOOK_CODE
+----------
+BOOK_NAME
+--------------------------------------------------------------------------------
+BOOK_PUB_YEAR
+-------------
+BOOK_PUB_AUTHOR
+--------------------------------------------------------------------------------
+         1
+ncert
+         2002
+gov
+
+
+ BOOK_CODE
+----------
+BOOK_NAME
+--------------------------------------------------------------------------------
+BOOK_PUB_YEAR
+-------------
+BOOK_PUB_AUTHOR
+--------------------------------------------------------------------------------
+         2
+s_chand
+         2004
+chand
+
+ANS)select * from book_master where book_pub_year between 2001 and 2004;
+
+ BOOK_CODE
+----------
+BOOK_NAME
+--------------------------------------------------------------------------------
+BOOK_PUB_YEAR
+-------------
+BOOK_PUB_AUTHOR
+--------------------------------------------------------------------------------
+         1
+ncert
+         2002
+gov
+
+
+ BOOK_CODE
+----------
+BOOK_NAME
+--------------------------------------------------------------------------------
+BOOK_PUB_YEAR
+-------------
+BOOK_PUB_AUTHOR
+--------------------------------------------------------------------------------
+         2
+s_chand
+         2004
+chand
+
+
+Also display book details with Book name having the character ‘&’ anywhere.
+
+ select * from book_master where book_name like '%[&]%';
+
+ BOOK_CODE
+----------
+BOOK_NAME
+--------------------------------------------------------------------------------
+BOOK_PUB_YEAR
+-------------
+BOOK_PUB_AUTHOR
+--------------------------------------------------------------------------------
+         3
+alg%[&]%ebra
+         2003
+sharma
+
+
+
+5)List the names of the staff having ‘_’ character in their name.
+
+Ans)select  staff_name from staff_master where staff_name  like '%\_%' escape '\';
+
+STAFF_NAME
+--------------------------------------------------
+sunny_sharma
+
+
+Single Row And Group Functions
+
+2.1: Single Row Functions
+
+1)Create a query which will display Staff Name, Salary of each staff. Format the salary to be 15 characters long and left padded with ‘$’. 
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+       101 james                                                        1
+         5 12-NOV-18 14-NOV-00
+h.no.14_ramnagar_varanasi
+       404      20000
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+       102 daniel                                                       2
+         4 12-NOV-15 14-NOV-95
+h.no.11_chowk_lucknow
+       405      25000
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+       103 ram                                                          3
+         6 11-NOV-12 14-NOV-92
+h.no.10_townhall_delhi
+       406      22000
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+       104 rahul                                                        4
+         7 11-NOV-19 14-NOV-99
+h.no.16_kakadeo_kanpur
+       407      27000
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+       104 rahul                                                        4
+         7 02-NOV-02 14-NOV-99
+h.no.16_kakadeo_kanpur
+       407      21000
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+         9 sunny                                                        7
+         0 17-DEC-99 15-NOV-82
+delhi
+        12      25000
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+         6 prakash                                                      4
+         2 17-DEC-90 15-NOV-81
+mumbai
+                25000
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE HIREDATE  STAFF_DOB
+---------- --------- ---------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+  MGR_CODE  STAFF_SAL
+---------- ----------
+       101 sunny_sharma                                                 2
+         3 09-NOV-12 30-OCT-92
+delhi
+        50      22000
+
+
+Ans) SELECT STAFF_NAME,'$'||STAFF_SAL AS STAFF_SAL FROM STAFF_MASTER;
+
+STAFF_NAME
+--------------------------------------------------
+STAFF_SAL
+-----------------------------------------
+james
+$20000
+
+daniel
+$25000
+
+ram
+$22000
+
+
+STAFF_NAME
+--------------------------------------------------
+STAFF_SAL
+-----------------------------------------
+rahul
+$27000
+
+rahul
+$21000
+
+sunny
+$25000
+
+
+STAFF_NAME
+--------------------------------------------------
+STAFF_SAL
+-----------------------------------------
+prakash
+$25000
+
+sunny_sharma
+$22000
+
+
+2)Display name and date of birth of students where date of birth must be displayed in the format similar to “January, 12 1981” for those who were born on Saturday or Sunday.
+
+
+
+
 
