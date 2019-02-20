@@ -1,0 +1,6 @@
+using jpql
+
+find max salary from employee table
+display all employee detail
+show employee whose salary is between 4000 and 6000
+show employee number and name whose salary is max in their corresponding department
