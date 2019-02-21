@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript">
+function validation()
+{
+var emailfilter=/^\w+[\+\.\w-]*@([\w-]+\.)*\w+[\w-]*\.([a-z]{2,4}|\d+)$/i
+var b=emailfilter.test(document.form2.mailid.value);
+if(b==false)
+{
+alert("Please Enter a valid Mail ID");
+document.form2.mailid.focus();
+return false;
+}
+}
+</script>
+</head>
+<body>
+<form name="form2" method="post" onsubmit="return validat()">
+<tr>
+<td> Email-ID:</td>
+<td><input type="text" name="mailid"></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" name="sub" value="Submit"></td>
+</tr>
+</form>
+</body>
+</html>
